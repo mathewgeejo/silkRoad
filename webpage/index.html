@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal Search</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="search-container">
+    <h1 style="color:#74716E;font-size:2.5em;font-weight:normal;margin-bottom:30px;">silkRoad Search</h1>
+    <form action="#" method="GET" autocomplete="off" onsubmit="alert('Search for: ' + this.q.value); return false;">
+      <div class="relative">
+        <input class="search-box" type="text" id="searchBox" placeholder="Search..." autocomplete="off" />
+        <div id="suggestions" class="suggestions"></div>
+      </div>
+      <button class="search-btn" type="submit">Search</button>
+    </form>
+    <div id="studentDetails"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
