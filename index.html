@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>silkRoad - Student Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-logo">silkRoad</a>
+            <ul class="navbar-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="search.html">Directory</a></li>
+                <li><a href="certificate.html">Certificates</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="landing-container">
+        <div class="hero-section">
+            <h1>Welcome to silkRoad</h1>
+            <p class="hero-subtitle">Connect with your classmates like never before</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="studentCount">0</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="departmentCount">0</span>
+                    <span class="stat-label">Departments</span>
+                </div>
+            </div>
+            <a href="search.html" class="cta-button">Search Directory</a>
+        </div>
+
+        <section class="features-section">
+            <h2>Why silkRoad?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Easy Search</h3>
+                    <p>Find your classmates quickly with our smart search system</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Connect Instantly</h3>
+                    <p>Access social media profiles with just one click</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy First</h3>
+                    <p>Your data is protected and only shared with your consent</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-spotlight" id="search-spotlight">
+            <div class="spotlight-content">
+                <div class="spotlight-text">
+                    <h2>Advanced Student Search</h2>
+                    <p class="spotlight-description">Our intelligent search system makes finding your classmates easier than ever. Start typing a name and watch as instant suggestions appear, complete with department information.</p>
+                    <ul class="feature-list">
+                        <li>🎯 Real-time search suggestions</li>
+                        <li>📚 Department-wise filtering</li>
+                        <li>👥 Comprehensive student profiles</li>
+                        <li>📱 Direct social media links</li>
+                    </ul>
+                    <a href="search.html" class="feature-cta">Try Student Search</a>
+                </div>
+                <div class="spotlight-image search-demo">
+                    <div class="browser-mockup">
+                        <div class="search-demo-content">
+                            <input type="text" placeholder="Search by name..." disabled>
+                            <div class="demo-suggestions">
+                                <div class="demo-suggestion">
+                                    <span>John Smith</span>
+                                    <span class="demo-department">Computer Science</span>
+                                </div>
+                                <div class="demo-suggestion">
+                                    <span>John Doe</span>
+                                    <span class="demo-department">Engineering</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-spotlight reverse" id="certificate-spotlight">
+            <div class="spotlight-content">
+                <div class="spotlight-image certificate-demo">
+                    <div class="certificate-mockup">
+                        <div class="certificate-preview-demo">
+                            <h3>Certificate of Achievement</h3>
+                            <div class="certificate-preview-content">
+                                <p>This certifies that</p>
+                                <p class="preview-name">John Smith</p>
+                                <p>has successfully completed</p>
+                                <p class="preview-course">Web Development Fundamentals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spotlight-text">
+                    <h2>Certificate Generation</h2>
+                    <p class="spotlight-description">Create professional certificates in seconds. Perfect for course completions, achievements, and participation recognition.</p>
+                    <ul class="feature-list">
+                        <li>🎨 Beautiful certificate templates</li>
+                        <li>⚡ Instant generation</li>
+                        <li>🔄 Real-time preview</li>
+                        <li>📥 Easy download & sharing</li>
+                    </ul>
+                    <a href="certificate.html" class="feature-cta">Generate Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="feature-spotlight" id="community-spotlight">
+            <div class="spotlight-content">
+                <div class="spotlight-text">
+                    <h2>Building Connections</h2>
+                    <p class="spotlight-description">silkRoad is more than just a directory - it's a platform for building meaningful connections with your peers.</p>
+                    <ul class="feature-list">
+                        <li>🌐 Cross-department networking</li>
+                        <li>🤝 Professional connections</li>
+                        <li>📊 Department insights</li>
+                        <li>🔔 Stay updated with classmates</li>
+                    </ul>
+                    <a href="search.html" class="feature-cta">Join the Community</a>
+                </div>
+                <div class="spotlight-image community-demo">
+                    <div class="stats-mockup">
+                        <div class="stats-card">
+                            <div class="stats-number">500+</div>
+                            <div class="stats-label">Active Students</div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-number">15+</div>
+                            <div class="stats-label">Departments</div>
+                        </div>
+                        <div class="stats-card">
+                            <div class="stats-number">1000+</div>
+                            <div class="stats-label">Connections Made</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-sections">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="search.html">Student Directory</a></li>
+                        <li><a href="certificate.html">Certificates</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 silkRoad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>silkRoad - Certificate Generation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-logo">silkRoad</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Directory</a></li>
+                <li><a href="certificate.html" class="active">Certificates</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="certificate-container">
+        <div class="certificate-hero">
+            <h1>Generate Your Certificate</h1>
+            <p class="subtitle">Create and download professional certificates</p>
+        </div>
+
+        <div class="certificate-form-container">
+            <form id="certificateForm" class="certificate-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="courseTitle">Course Title</label>
+                    <input type="text" id="courseTitle" name="courseTitle" placeholder="Enter course title" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="completionDate">Completion Date</label>
+                        <input type="date" id="completionDate" name="completionDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="certificateType">Certificate Type</label>
+                        <select id="certificateType" name="certificateType" required>
+                            <option value="">Select type</option>
+                            <option value="completion">Course Completion</option>
+                            <option value="achievement">Achievement</option>
+                            <option value="participation">Participation</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="generate-btn">Generate Certificate</button>
+            </form>
+
+            <div class="certificate-preview">
+                <h3>Preview</h3>
+                <div class="preview-container">
+                    <div class="certificate-template">
+                        <div class="certificate-content">
+                            <h2>Certificate of <span id="previewType">Completion</span></h2>
+                            <p class="certificate-text">This is to certify that</p>
+                            <p class="certificate-name" id="previewName">Your Name</p>
+                            <p class="certificate-text">has successfully completed the course</p>
+                            <p class="certificate-course" id="previewCourse">Course Title</p>
+                            <p class="certificate-date" id="previewDate">Date</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="certificate.js"></script>
+</body>
+</html>
