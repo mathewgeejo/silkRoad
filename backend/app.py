@@ -34,7 +34,6 @@ def suggest():
         q = request.args.get('q')
         if not q:
             return jsonify([])
-        
         conn = get_db_connection()
         if not conn:
             return jsonify({"error": "Database connection failed"}), 500
@@ -51,7 +50,6 @@ def suggest():
         
         cursor.close()
         conn.close()
-        
         return jsonify(results)
         
     except Exception as e:
@@ -71,7 +69,7 @@ def student():
         
         cursor = conn.cursor()
         cursor.execute(
-            'SELECT name, date_of_birth, "Instagram_id" FROM students WHERE id = %s',
+            'SELECT name, date_of_birth, "Instagram_id", father_mobile FROM students WHERE id = %s',
             (student_id,)
         )
         

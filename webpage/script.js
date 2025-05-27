@@ -171,6 +171,23 @@ function renderStudentDetails(student, is1970Date, age, detailsDiv) {
             <span class="social-id">Instagram ID not yet available 😢</span>
           </div>
         `}
+        ${student.father_mobile ? `
+          <div class="social-item">
+            <span class="social-platform">Phone</span>
+            <div class="phone-info">
+              <span class="social-id">
+                <a href="tel:${student.father_mobile}" onclick="event.stopPropagation();">
+                 ${student.father_mobile}
+                </a>
+              </span>
+            </div>
+          </div>
+        ` : `
+          <div class="social-item">
+            <span class="social-platform">Phone</span>
+            <span class="social-id">Phone number not available 📱</span>
+          </div>
+        `}
         ${student.Snapchat_id ? `
           <div class="social-item">
             <span class="social-platform">Snapchat</span>
@@ -187,6 +204,11 @@ function renderStudentDetails(student, is1970Date, age, detailsDiv) {
             ''}
       </div>
       <button class="clear-btn" onclick="clearResults()">Clear Results</button>
+      <div class="opt-out">
+        <a href="https://forms.gle/your-opt-out-form" target="_blank" rel="noopener noreferrer">
+          🔒 Request to remove your data
+        </a>
+      </div>
     </div>
   `;
 }
