@@ -9,7 +9,6 @@ CORS(app)
 # Database connection string
 CONNECTION_STRING = "postgresql://studentData_owner:npg_MLdTR0HjfmB8@ep-rapid-wildflower-a19kw674.ap-southeast-1.aws.neon.tech/studentData?sslmode=require"
 
-# Create database connection
 def get_db_connection():
     try:
         conn = psycopg2.connect(CONNECTION_STRING)
