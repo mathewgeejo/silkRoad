@@ -16,15 +16,12 @@ client
   .then(() => console.log("Connected to the database"))
   .catch((err) => console.error("Connection error", err.stack));
 
-// Only keep endpoints actually used by your frontend
-
-// Suggest endpoint for autosuggestions (id + name)
 app.get("/suggest", async (req, res) => {
   try {
     const { q } = req.query;
     if (!q) return res.json([]);
     const result = await client.query(
-      "SELECT id, name FROM students WHERE name ILIKE $1 ORDER BY name LIMIT 8",
+      "SELECT id, name, department FROM students WHERE name ILIKE $1 ORDER BY name LIMIT 8",
       [`%${q}%`]
     );
     res.json(result.rows);
