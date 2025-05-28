@@ -1,4 +1,3 @@
-// Simplified student search and display script
 const searchBox = document.getElementById('searchBox');
 const suggestions = document.getElementById('suggestions');
 const detailsDiv = document.getElementById('studentDetails');
@@ -86,10 +85,42 @@ function getDaysUntilNextBirthday(dob) {
 async function fetchStudentDetailsById(id) {
   try {
     const res = await fetch(`http://localhost:3000/student?id=${encodeURIComponent(id)}`, { credentials: 'include' });
-    if (res.status === 401) return window.location.href = 'http://127.0.0.1:3000/login';
+    detailsDiv.innerHTML = '';
+    
+    if (res.status === 401) {
+      return window.location.href = 'http://127.0.0.1:3000/login';
+    }
+    
+    if (res.status === 403) {
+      const data = await res.json(); 
+      detailsDiv.innerHTML = `
+        <div class="student-card">
+          <div class="privacy-notice">
+            <h2 class="student-name">${data.name}</h2>
+            <h3>🔒 Privacy Protected</h3>
+            <p>This student has chosen to keep their information private.</p>
+            <small>Please respect their privacy preference.</small>
+            <button class="clear-btn" onclick="clearResults()">Back to Search</button>
+          </div>
+        </div>`;
+      return;
+    }
+    
+    if (res.status === 404) {
+      detailsDiv.innerHTML = '<div class="student-card">Student not found.</div>';
+      return;
+    }
+    if (!res.ok) {
+      detailsDiv.innerHTML = '<div class="student-card">Error loading student details.</div>';
+      return;
+    }
+
     const data = await res.json();
     const student = Array.isArray(data) ? data[0] : data;
-    if (!student || !student.name) return detailsDiv.innerHTML = '<div class="student-card">No student found.</div>';
+    if (!student || !student.name) {
+      detailsDiv.innerHTML = '<div class="student-card">No student found.</div>';
+      return;
+    }
 
     const dobDate = new Date(student.date_of_birth);
     const is1970Date = dobDate.getFullYear() === 1970 && dobDate.getMonth() === 0 && dobDate.getDate() === 1;
@@ -133,10 +164,39 @@ function renderStudentDetails(student, is1970Date, age) {
       </div>
       <button class="clear-btn" onclick="clearResults()">Clear Results</button>
       <div class="opt-out">
-        <a href="https://forms.gle/your-opt-out-form" target="_blank">🔒 Request to remove your data</a>
+        <button onclick="requestOptOut('${student.sr_no}')" class="opt-out-btn">Request to remove your data</button>
       </div>
     </div>`;
 }
+
+// Add this new function to handle opt-out requests
+async function requestOptOut(srNo) {
+  try {
+    // First redirect to Google auth
+    window.location.href = `http://localhost:3000/login?redirect=opt_out&sr_no=${srNo}`;
+  } catch (error) {
+    alert('Error processing your request');
+    console.error('Opt-out error:', error);
+  }
+}
+
+// Add some CSS for the opt-out button
+const style = document.createElement('style');
+style.textContent = `
+  .opt-out-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .opt-out-btn:hover {
+    background-color: #cc0000;
+  }
+`;
+document.head.appendChild(style);
 
 document.querySelector('form').addEventListener('submit', function (e) {
   e.preventDefault();

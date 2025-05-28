@@ -1,41 +1,25 @@
 async function checkAuthState() {
     try {
-        const response = await fetch('http://127.0.0.1:3000/', {
+        const response = await fetch('http://127.0.0.1:3000/auth/status', {
             credentials: 'include'
         });
-        const data = await response.json();
         
-        const authLinks = document.getElementById('authLinks');
-        if (data.user) {
-            authLinks.innerHTML = `
-                <div class="user-profile">
-                    <img src="${data.user.picture}" alt="Profile" class="profile-pic">
-                    <div class="profile-dropdown">
-                        <span>${data.user.name}</span>
-                        <a href="#" onclick="logout()">Logout</a>
-                    </div>
-                </div>
-            `;
+        const data = await response.json();
+        const userProfilePic = document.getElementById('userProfilePic');
+        const loginBtn = document.getElementById('loginBtn');
+
+        if (data.authenticated && data.user) {
+            userProfilePic.src = data.user.picture;
+            userProfilePic.style.display = 'block';
+            loginBtn.style.display = 'none';
         } else {
-            authLinks.innerHTML = `
-                <a href="http://127.0.0.1:3000/login" class="login-btn">Login with Google</a>
-            `;
+            userProfilePic.style.display = 'none';
+            loginBtn.style.display = 'block';
         }
     } catch (error) {
-        console.error('Auth check failed:', error);
+        console.error('Error checking auth state:', error);
     }
 }
 
-async function logout() {
-    try {
-        await fetch('http://127.0.0.1:3000/logout', {
-            credentials: 'include'
-        });
-        window.location.reload();
-    } catch (error) {
-        console.error('Logout failed:', error);
-    }
-}
-
-// Check auth state on page load
+// Check auth state when page loads
 document.addEventListener('DOMContentLoaded', checkAuthState);

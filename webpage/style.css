@@ -897,3 +897,41 @@ h1 {
     gap: 2rem;
   }
 }
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-dp {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e5e5e5;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.user-dp:hover {
+    border-color: #000000;
+}
+
+.opt-out {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.opt-out a {
+  color: #999999;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.opt-out a:hover {
+  color: #666666;
+}
