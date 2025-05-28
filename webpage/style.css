@@ -246,6 +246,7 @@ h1 {
 }
 
 .social-id a {
+  text-align: right;
   text-decoration: none;
   color: inherit;
 }
@@ -254,6 +255,7 @@ h1 {
   color: inherit;
   text-decoration: none;
 }
+
 
 .student-info {
   margin-top: 1rem;

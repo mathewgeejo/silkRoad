@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>silkRoad Search</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="auth.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-content">
             <span class="navbar-logo">silkRoad</span>
             <ul class="navbar-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Directory</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Directory</a></li>
                 <li><a href="#">About</a></li>
+                <li id="authLinks">
+                    <a href="http://127.0.0.1:3000/login" class="login-btn">Login with Google</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -35,6 +39,6 @@
         <section id="studentDetails"></section>
     </main>
   
-    <script src="script.js  "></script>
+    <script src="script.js"></script>
 </body>
 </html>
